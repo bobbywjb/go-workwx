@@ -10,6 +10,7 @@ require (
 	github.com/russross/blackfriday/v2 v2.1.0
 	github.com/smartystreets/goconvey v1.8.1
 	github.com/urfave/cli/v2 v2.27.6
+	github.com/xen0n/go-workwx/v2 v2.0.0-20250714090614-a03bf8c0afc1
 	golang.org/x/net v0.42.0
 )
 

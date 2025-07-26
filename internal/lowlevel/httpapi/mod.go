@@ -3,8 +3,8 @@ package httpapi
 import (
 	"net/http"
 
-	"github.com/xen0n/go-workwx/v2/internal/lowlevel/encryptor"
-	"github.com/xen0n/go-workwx/v2/internal/lowlevel/envelope"
+	"github.com/bobbywjb/go-workwx/v2/internal/lowlevel/encryptor"
+	"github.com/bobbywjb/go-workwx/v2/internal/lowlevel/envelope"
 )
 
 type LowlevelHandler struct {
