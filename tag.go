@@ -1,6 +1,9 @@
 package workwx
 
-import "net/url"
+import (
+	"net/url"
+	"strconv"
+)
 
 // Tag 标签结构体
 type Tag struct {
@@ -55,10 +58,27 @@ type tagListResp struct {
 	TagList []Tag `json:"taglist"`
 }
 
+// tagUserListResp
+type tagUserListResp struct {
+	respCommon
+	TagName   string    `json:"tagname"`
+	UserList  []TagUser `json:"userlist,omitempty"`
+	PartyList []int64   `json:"partylist,omitempty"`
+}
 type reqTagList struct{}
 
 func (x reqTagList) intoURLValues() url.Values {
 	return url.Values{}
+}
+
+type reqTagUserList struct {
+	TagID int64
+}
+
+func (x reqTagUserList) intoURLValues() url.Values {
+	return url.Values{
+		"tagid": {strconv.FormatInt(x.TagID, 10)},
+	}
 }
 
 // execTagList 获取标签列表
@@ -72,6 +92,16 @@ func (c *WorkwxApp) execTagList() (*tagListResp, error) {
 	return &resp, nil
 }
 
+// execTagUserList 获取标签中包含的成员列表
+func (c *WorkwxApp) execTagUserList(req reqTagUserList) (*tagUserListResp, error) {
+	var resp tagUserListResp
+	err := executeQyapiGet(c, "/cgi-bin/tag/get", req, &resp, true)
+	if err != nil {
+		return nil, err
+	}
+	return &resp, nil
+}
+
 // GetTagList 获取标签列表
 func (c *WorkwxApp) GetTagList() ([]Tag, error) {
 	resp, err := c.execTagList()
@@ -79,4 +109,14 @@ func (c *WorkwxApp) GetTagList() ([]Tag, error) {
 		return nil, err
 	}
 	return resp.TagList, nil
+}
+
+// GetTagUserList 获取标签中包含的成员列表
+func (c *WorkwxApp) GetTagUserList(TagID int64) ([]TagUser, error) {
+	req := reqTagUserList{TagID: TagID}
+	resp, err := c.execTagUserList(req)
+	if err != nil {
+		return nil, err
+	}
+	return resp.UserList, nil
 }
