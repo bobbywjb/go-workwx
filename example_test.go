@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/xen0n/go-workwx/v2"
+	"github.com/bobbywjb/go-workwx/v2"
 )
 
 const (
