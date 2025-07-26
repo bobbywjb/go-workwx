@@ -276,3 +276,11 @@ Name|Request Type|Response Type|Access Token|URL|Doc
 `execKfSyncMsg`|`reqKfSyncMsg`|`respKfSyncMsg`|+|`POST /cgi-bin/kf/sync_msg`|[读取消息](https://developer.work.weixin.qq.com/document/path/94670)
 `execKfSend`|`reqMessage`|`respMessageSend`|+|`POST /cgi-bin/kf/send_msg`|[发送消息](https://developer.work.weixin.qq.com/document/path/94677)
 `execKfOnEventSend`|`reqMessage`|`respMessageSend`|+|`POST /cgi-bin/kf/send_msg_on_event`|[发送欢迎语等事件响应消息](https://developer.work.weixin.qq.com/document/path/95122)
+
+# 标签 - 查询
+
+## API calls
+Name| Request Type     |Response Type|Access Token| URL                     |Doc
+:---|------------------|-------------|------------|:------------------------|:--
+`execTagList`| `reqTagList`     |`tagListResp`|+| `GET /cgi-bin/tag/list` |[获取标签列表](https://developer.work.weixin.qq.com/document/path/90216)
+`execTagUserList`| `reqTagUserList` |`tagUserListResp`|+| `GET /cgi-bin/tag/get`  |[获取标签成员](https://developer.work.weixin.qq.com/document/path/90213)

@@ -892,3 +892,25 @@ func (c *WorkwxApp) execKfOnEventSend(req reqMessage) (respMessageSend, error) {
 
 	return resp, nil
 }
+
+// execTagList 获取标签列表
+func (c *WorkwxApp) execTagList(req reqTagList) (tagListResp, error) {
+	var resp tagListResp
+	err := executeQyapiGet(c, "/cgi-bin/tag/list", req, &resp, true)
+	if err != nil {
+		return tagListResp{}, err
+	}
+
+	return resp, nil
+}
+
+// execTagUserList 获取标签成员
+func (c *WorkwxApp) execTagUserList(req reqTagUserList) (tagUserListResp, error) {
+	var resp tagUserListResp
+	err := executeQyapiGet(c, "/cgi-bin/tag/get", req, &resp, true)
+	if err != nil {
+		return tagUserListResp{}, err
+	}
+
+	return resp, nil
+}

@@ -1973,3 +1973,23 @@ func (x reqOASetOneUserVacationQuota) intoBody() ([]byte, error) {
 type respOASetOneUserVacationQuota struct {
 	respCommon
 }
+
+type reqTagList struct{}
+
+var _ urlValuer = reqTagList{}
+
+func (x reqTagList) intoURLValues() url.Values {
+	return url.Values{}
+}
+
+type reqTagUserList struct {
+	TagID int64
+}
+
+var _ urlValuer = reqTagUserList{}
+
+func (x reqTagUserList) intoURLValues() url.Values {
+	return url.Values{
+		"tagid": {strconv.FormatInt(x.TagID, 10)},
+	}
+}
