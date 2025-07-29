@@ -79,3 +79,13 @@ func (c *WorkwxApp) GetTagUserList(TagID int64) ([]TagUser, error) {
 	}
 	return resp.UserList, nil
 }
+
+// GetTagDepartmentList 获取含有该标签用户的部门列表
+func (c *WorkwxApp) GetTagDepartmentList(TagID int64) ([]int64, error) {
+	req := reqTagUserList{TagID: TagID}
+	resp, err := c.execTagUserList(req)
+	if err != nil {
+		return nil, err
+	}
+	return resp.PartyList, nil
+}
