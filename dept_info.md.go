@@ -14,4 +14,6 @@ type DeptInfo struct {
 	ParentID int64 `json:"parentid"`
 	// Order 在父部门中的次序值。order值大的排序靠前。值范围是[0, 2^32)
 	Order uint32 `json:"order"`
+	// DeptLeader 部门负责人的UserID；第三方仅通讯录应用可获取
+	DeptLeader []string `json:"department_leader"`
 }
