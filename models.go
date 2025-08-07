@@ -1341,7 +1341,8 @@ type TemplateCard struct {
 	ButtonSelection *ButtonSelection `json:"button_selection,omitempty"`
 	ButtonList      []Button         `json:"button_list,omitempty" validate:"omitempty,max=6"`
 	// 投票选择型
-	CheckBox     *CheckBox     `json:"checkbox,omitempty"`
+	CheckBox *CheckBox `json:"checkbox,omitempty"`
+	// 多项选择型
 	SelectList   []SelectList  `json:"select_list,omitempty" validate:"max=3"`
 	SubmitButton *SubmitButton `json:"submit_button,omitempty"`
 }
