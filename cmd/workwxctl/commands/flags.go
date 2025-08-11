@@ -50,6 +50,9 @@ const (
 	flagMentionUser        = "mention-user"
 	flagMentionMobile      = "mention-mobile"
 	flagMentionMobileShort = "m"
+
+	flagResponseCode      = "response-code"
+	flagResponseCodeShort = "r"
 )
 
 type cliOptions struct {
