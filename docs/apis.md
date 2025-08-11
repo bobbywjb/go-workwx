@@ -137,6 +137,7 @@ Name|Request Type|Response Type|Access Token|URL|Doc
 `execAppchatGet`|`reqAppchatGet`|`respAppchatGet`|+|`GET /cgi-bin/appchat/get`|[获取群聊会话](https://work.weixin.qq.com/api/doc#90000/90135/90247)
 `execMessageSend`|`reqMessage`|`respMessageSend`|+|`POST /cgi-bin/message/send`|[发送应用消息](https://work.weixin.qq.com/api/doc#90000/90135/90236)
 `execAppchatSend`|`reqMessage`|`respMessageSend`|+|`POST /cgi-bin/appchat/send`|[应用推送消息](https://work.weixin.qq.com/api/doc#90000/90135/90248)
+`execTemplateCardUpdate`|`reqTemplateCardUpdateMessage`|`respMessageSend`|+|`POST /cgi-bin/message/update_template_card`|[更新模板卡片消息](https://developer.work.weixin.qq.com/document/path/94888)
 
 # 素材管理
 

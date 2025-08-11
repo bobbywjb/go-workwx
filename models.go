@@ -1360,6 +1360,16 @@ type TemplateCardUpdateMessage struct {
 	ReplaceText  string       `json:"replace_text,omitempty"`
 }
 
+type reqTemplateCardUpdateMessage struct {
+	TemplateCardUpdateMessage
+	AgentID int64 `json:"agentid"`
+	IsSafe  bool  `json:"is_safe"`
+}
+
+var _ bodyer = reqTemplateCardUpdateMessage{}
+
+func (x reqTemplateCardUpdateMessage) intoBody() ([]byte, error) { return marshalIntoJSONBody(x) }
+
 type reqTransferCustomer struct {
 	// HandoverUserID 原跟进成员的userid
 	HandoverUserID string `json:"handover_userid"`

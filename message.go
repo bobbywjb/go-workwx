@@ -204,6 +204,34 @@ func (c *WorkwxApp) SendTemplateCardMessage(
 	)
 }
 
+// SendTemplateCardUpdateMessage 发送模板卡片更新消息
+//
+// 发送更新消息时必须有agentid，agentid和response_code唯一标识一条消息，通过WorkwxApp获取。
+func (c *WorkwxApp) SendTemplateCardUpdateMessage(
+	templateCardUpdateMessage *TemplateCardUpdateMessage,
+	isSafe bool,
+) error {
+	return c.sendTemplateCardUpdateMessage(templateCardUpdateMessage, isSafe)
+}
+
+// sendTemplateCardUpdateMessage
+func (c *WorkwxApp) sendTemplateCardUpdateMessage(
+	templateCardUpdateMessage *TemplateCardUpdateMessage, isSafe bool) error {
+	req := reqTemplateCardUpdateMessage{
+		*templateCardUpdateMessage,
+		c.AgentID,
+		isSafe,
+	}
+	resp, err := c.execTemplateCardUpdate(req)
+	if err != nil {
+		return err
+	}
+
+	// TODO: what to do with resp?
+	_ = resp
+	return nil
+}
+
 // sendMessage 发送消息底层接口
 //
 // 收件人参数如果仅设置了 `ChatID` 字段，则为【发送消息到群聊会话】接口调用；

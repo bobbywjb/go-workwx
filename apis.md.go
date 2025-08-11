@@ -409,6 +409,17 @@ func (c *WorkwxApp) execAppchatSend(req reqMessage) (respMessageSend, error) {
 	return resp, nil
 }
 
+// execTemplateCardUpdate 更新模板卡片消息
+func (c *WorkwxApp) execTemplateCardUpdate(req reqTemplateCardUpdateMessage) (respMessageSend, error) {
+	var resp respMessageSend
+	err := executeQyapiJSONPost(c, "/cgi-bin/message/update_template_card", req, &resp, true)
+	if err != nil {
+		return respMessageSend{}, err
+	}
+
+	return resp, nil
+}
+
 // execMediaUpload 上传临时素材
 func (c *WorkwxApp) execMediaUpload(req reqMediaUpload) (respMediaUpload, error) {
 	var resp respMediaUpload
