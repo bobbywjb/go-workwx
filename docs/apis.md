@@ -47,15 +47,15 @@ Name|Request Type|Response Type|Access Token|URL|Doc
 
 ## API calls
 
-Name|Request Type|Response Type|Access Token|URL|Doc
-:---|------------|-------------|------------|:--|:--
-`execTagCreate`|TODO|TODO|+|`POST /cgi-bin/tag/create`|[创建标签](https://work.weixin.qq.com/api/doc#90000/90135/90210)
-`execTagUpdate`|TODO|TODO|+|`POST /cgi-bin/tag/update`|[更新标签名字](https://work.weixin.qq.com/api/doc#90000/90135/90211)
-`execTagDelete`|TODO|TODO|+|`GET /cgi-bin/tag/delete`|[删除标签](https://work.weixin.qq.com/api/doc#90000/90135/90212)
-`execTagListUsers`|TODO|TODO|+|`GET /cgi-bin/tag/get`|[获取标签成员](https://work.weixin.qq.com/api/doc#90000/90135/90213)
-`execTagAddUsers`|TODO|TODO|+|`POST /cgi-bin/tag/addtagusers`|[增加标签成员](https://work.weixin.qq.com/api/doc#90000/90135/90214)
-`execTagDeleteUsers`|TODO|TODO|+|`POST /cgi-bin/tag/deltagusers`|[删除标签成员](https://work.weixin.qq.com/api/doc#90000/90135/90215)
-`execTagList`|TODO|TODO|+|`GET /cgi-bin/tag/list`|[获取标签列表](https://work.weixin.qq.com/api/doc#90000/90135/90216)
+Name| Request Type      | Response Type      |Access Token|URL|Doc
+:---|-------------------|--------------------|------------|:--|:--
+`execTagCreate`| TODO              | TODO               |+|`POST /cgi-bin/tag/create`|[创建标签](https://work.weixin.qq.com/api/doc#90000/90135/90210)
+`execTagUpdate`| TODO              | TODO               |+|`POST /cgi-bin/tag/update`|[更新标签名字](https://work.weixin.qq.com/api/doc#90000/90135/90211)
+`execTagDelete`| TODO              | TODO               |+|`GET /cgi-bin/tag/delete`|[删除标签](https://work.weixin.qq.com/api/doc#90000/90135/90212)
+`execTagListUsers`| `reqTagListUsers` | `respTagListUsers` |+|`GET /cgi-bin/tag/get`|[获取标签成员](https://work.weixin.qq.com/api/doc#90000/90135/90213)
+`execTagAddUsers`| TODO              | TODO               |+|`POST /cgi-bin/tag/addtagusers`|[增加标签成员](https://work.weixin.qq.com/api/doc#90000/90135/90214)
+`execTagDeleteUsers`| TODO              | TODO               |+|`POST /cgi-bin/tag/deltagusers`|[删除标签成员](https://work.weixin.qq.com/api/doc#90000/90135/90215)
+`execTagList`| `reqTagList`      | `respTagList`      |+|`GET /cgi-bin/tag/list`|[获取标签列表](https://work.weixin.qq.com/api/doc#90000/90135/90216)
 
 # 异步批量接口
 
@@ -276,11 +276,3 @@ Name|Request Type|Response Type|Access Token|URL|Doc
 `execKfSyncMsg`|`reqKfSyncMsg`|`respKfSyncMsg`|+|`POST /cgi-bin/kf/sync_msg`|[读取消息](https://developer.work.weixin.qq.com/document/path/94670)
 `execKfSend`|`reqMessage`|`respMessageSend`|+|`POST /cgi-bin/kf/send_msg`|[发送消息](https://developer.work.weixin.qq.com/document/path/94677)
 `execKfOnEventSend`|`reqMessage`|`respMessageSend`|+|`POST /cgi-bin/kf/send_msg_on_event`|[发送欢迎语等事件响应消息](https://developer.work.weixin.qq.com/document/path/95122)
-
-# 标签 - 查询
-
-## API calls
-Name| Request Type     |Response Type|Access Token| URL                     |Doc
-:---|------------------|-------------|------------|:------------------------|:--
-`execTagList`| `reqTagList`     |`tagListResp`|+| `GET /cgi-bin/tag/list` |[获取标签列表](https://developer.work.weixin.qq.com/document/path/90216)
-`execTagUserList`| `reqTagUserList` |`tagUserListResp`|+| `GET /cgi-bin/tag/get`  |[获取标签成员](https://developer.work.weixin.qq.com/document/path/90213)

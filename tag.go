@@ -47,14 +47,14 @@ type tagCreateResp struct {
 	TagID int64 `json:"tagid"`
 }
 
-// tagListResp 标签列表响应
-type tagListResp struct {
+// respTagList 标签列表响应
+type respTagList struct {
 	respCommon
 	TagList []Tag `json:"taglist"`
 }
 
-// tagUserListResp
-type tagUserListResp struct {
+// respTagListUsers
+type respTagListUsers struct {
 	respCommon
 	TagName   string    `json:"tagname"`
 	UserList  []TagUser `json:"userlist,omitempty"`
@@ -72,8 +72,8 @@ func (c *WorkwxApp) GetTagList() ([]Tag, error) {
 
 // GetTagUserList 获取标签中包含的成员列表
 func (c *WorkwxApp) GetTagUserList(TagID int64) ([]TagUser, error) {
-	req := reqTagUserList{TagID: TagID}
-	resp, err := c.execTagUserList(req)
+	req := reqTagListUsers{TagID: TagID}
+	resp, err := c.execTagListUsers(req)
 	if err != nil {
 		return nil, err
 	}
@@ -82,8 +82,8 @@ func (c *WorkwxApp) GetTagUserList(TagID int64) ([]TagUser, error) {
 
 // GetTagDepartmentList 获取含有该标签用户的部门列表
 func (c *WorkwxApp) GetTagDepartmentList(TagID int64) ([]int64, error) {
-	req := reqTagUserList{TagID: TagID}
-	resp, err := c.execTagUserList(req)
+	req := reqTagListUsers{TagID: TagID}
+	resp, err := c.execTagListUsers(req)
 	if err != nil {
 		return nil, err
 	}

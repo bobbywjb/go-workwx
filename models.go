@@ -1983,13 +1983,13 @@ func (x reqTagList) intoURLValues() url.Values {
 	return url.Values{}
 }
 
-type reqTagUserList struct {
+type reqTagListUsers struct {
 	TagID int64
 }
 
-var _ urlValuer = reqTagUserList{}
+var _ urlValuer = reqTagListUsers{}
 
-func (x reqTagUserList) intoURLValues() url.Values {
+func (x reqTagListUsers) intoURLValues() url.Values {
 	return url.Values{
 		"tagid": {strconv.FormatInt(x.TagID, 10)},
 	}
