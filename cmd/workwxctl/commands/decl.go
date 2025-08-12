@@ -200,8 +200,13 @@ func InitApp() *cli.App {
 			{
 				Name:   "send-template-card-update-message",
 				Usage:  "更新模板卡片信息",
-				Action: cmdSendTemplateCardUpdateMessage,
+				Action: cmdSendTemplateCardMessage,
 				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:    flagTemplateMessageType,
+						Aliases: []string{flagTemplateMessageTypeShort},
+						Usage:   "normal 或 update",
+					},
 					&cli.StringFlag{
 						Name:  flagButtonText,
 						Usage: "按钮替换的文本",

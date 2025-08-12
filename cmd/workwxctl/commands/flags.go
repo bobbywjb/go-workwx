@@ -53,6 +53,9 @@ const (
 
 	flagResponseCode      = "response-code"
 	flagResponseCodeShort = "r"
+
+	flagTemplateMessageType      = "template-message-type"
+	flagTemplateMessageTypeShort = "tm"
 )
 
 type cliOptions struct {
