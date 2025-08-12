@@ -204,6 +204,34 @@ func (c *WorkwxApp) SendTemplateCardMessage(
 	)
 }
 
+// SendTemplateCardMessageWithResponse 发送卡片模板消息接收response
+func (c *WorkwxApp) SendTemplateCardMessageWithResponse(
+	recipient *Recipient,
+	templateCard TemplateCard,
+	isSafe bool,
+) (RespMessageSend, error) {
+	req := reqMessage{
+		ToUser:   recipient.UserIDs,
+		ToParty:  recipient.PartyIDs,
+		ToTag:    recipient.TagIDs,
+		ChatID:   recipient.ChatID,
+		AgentID:  c.AgentID,
+		Code:     recipient.Code,
+		OpenKfID: recipient.OpenKfID,
+		MsgType:  "template_card",
+		Content: map[string]any{
+			"template_card": templateCard,
+		},
+		IsSafe: isSafe,
+	}
+
+	resp, err := c.execMessageSend(req)
+	if err != nil {
+		return RespMessageSend{}, err
+	}
+	return RespMessageSend{resp}, nil
+}
+
 // SendTemplateCardUpdateMessage 发送模板卡片更新消息
 //
 // 发送更新消息时必须有agentid，agentid和response_code唯一标识一条消息，通过WorkwxApp获取。

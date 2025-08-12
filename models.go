@@ -152,6 +152,12 @@ type respMessageSend struct {
 	InvalidUsers   string `json:"invaliduser"`
 	InvalidParties string `json:"invalidparty"`
 	InvalidTags    string `json:"invalidtag"`
+	ResponseCode   string `json:"response_code"`
+}
+
+// RespMessageSend 导出的消息发送响应
+type RespMessageSend struct {
+	respMessageSend
 }
 
 type reqUserGet struct {
