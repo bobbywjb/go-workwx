@@ -1304,7 +1304,9 @@ type SelectList struct {
 	// 下拉式的选择器上面的title
 	Title string `json:"title,omitempty"`
 	// 默认选定的id，不填或错填默认第一个
-	SelectedID string       `json:"selected_id,omitempty"`
+	SelectedID string `json:"selected_id,omitempty"`
+	// 更新多选型模板消息时会用上
+	Disable    bool         `json:"disable,omitempty"`
 	OptionList []OptionList `json:"option_list"`
 }
 
