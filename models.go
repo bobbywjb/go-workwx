@@ -2,6 +2,7 @@ package workwx
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/url"
 	"strconv"
 	"strings"
@@ -1353,19 +1354,19 @@ type TemplateCard struct {
 	// 多项选择型
 	SelectList   []SelectList  `json:"select_list,omitempty" validate:"max=3"`
 	SubmitButton *SubmitButton `json:"submit_button,omitempty"`
+	ReplaceText  string        `json:"replace_text,omitempty"`
 }
 
 type TemplateCardUpdateMessage struct {
-	UserIDs      []string `json:"userids" validate:"omitempty,max=100"`
-	PartyIDs     []int64  `json:"partyids" validate:"omitempty,max=100"`
-	TagIDs       []int32  `json:"tagids" validate:"omitempty,max=100"`
+	UserIDs      []string `json:"userids,omitempty" validate:"omitempty,max=100"`
+	PartyIDs     []int64  `json:"partyids,omitempty" validate:"omitempty,max=100"`
+	TagIDs       []int32  `json:"tagids,omitempty" validate:"omitempty,max=100"`
 	AtAll        int      `json:"atall,omitempty"`
 	ResponseCode string   `json:"response_code"`
-	Button       struct {
+	Button       *struct {
 		ReplaceName string `json:"replace_name"`
-	} `json:"button" validate:"required_without=TemplateCard"`
+	} `json:"button,omitempty" validate:"required_without=TemplateCard"`
 	TemplateCard TemplateCard `json:"template_card" validate:"required_without=Button"`
-	ReplaceText  string       `json:"replace_text,omitempty"`
 }
 
 type reqTemplateCardUpdateMessage struct {
@@ -1376,7 +1377,11 @@ type reqTemplateCardUpdateMessage struct {
 
 var _ bodyer = reqTemplateCardUpdateMessage{}
 
-func (x reqTemplateCardUpdateMessage) intoBody() ([]byte, error) { return marshalIntoJSONBody(x) }
+func (x reqTemplateCardUpdateMessage) intoBody() ([]byte, error) {
+	j, _ := json.Marshal(x)
+	fmt.Println(string(j))
+	return marshalIntoJSONBody(x)
+}
 
 type reqTransferCustomer struct {
 	// HandoverUserID 原跟进成员的userid

@@ -15,6 +15,8 @@ func cmdSendTemplateCardMessage(c *cli.Context) error {
 
 	buttonText := c.String(flagButtonText)
 
+	_ = buttonText
+
 	responseCode := c.String(flagResponseCode)
 
 	app := cfg.MakeWorkwxApp()
@@ -58,9 +60,34 @@ func cmdSendTemplateCardMessage(c *cli.Context) error {
 		err := app.SendTemplateCardUpdateMessage(&workwx.TemplateCardUpdateMessage{
 			AtAll:        1,
 			ResponseCode: responseCode,
-			Button: struct {
-				ReplaceName string `json:"replace_name"`
-			}{buttonText},
+			TemplateCard: workwx.TemplateCard{
+
+				CardType: workwx.CardTypeMultipleInteraction,
+				MainTitle: &workwx.MainTitle{
+					Title: "tst",
+					Desc:  "tst",
+				},
+				SelectList: []workwx.SelectList{
+					{
+
+						QuestionKey: "leader",
+						Title:       "所选领导",
+						SelectedID:  "3t5er",
+						Disable:     true,
+						OptionList: []workwx.OptionList{
+							{
+								ID:   "3t5er",
+								Text: "3t5er",
+							},
+						},
+					},
+				},
+				SubmitButton: &workwx.SubmitButton{
+					Text: "已提交",
+					Key:  "Submit",
+				},
+				ReplaceText: "已提交",
+			},
 		}, false)
 		log.Printf("err:%v", err)
 		return err
