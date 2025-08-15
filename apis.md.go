@@ -178,6 +178,17 @@ func (c *WorkwxApp) execDeptSimpleList(req reqDeptSimpleList) (respDeptSimpleLis
 	return resp, nil
 }
 
+// execDept 获取单个部门
+func (c *WorkwxApp) execDept(req reqDept) (respDept, error) {
+	var resp respDept
+	err := executeQyapiGet(c, "/cgi-bin/department/get", req, &resp, true)
+	if err != nil {
+		return respDept{}, err
+	}
+
+	return resp, nil
+}
+
 // execTagListUsers 获取标签成员
 func (c *WorkwxApp) execTagListUsers(req reqTagListUsers) (respTagListUsers, error) {
 	var resp respTagListUsers

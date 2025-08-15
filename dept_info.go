@@ -37,6 +37,18 @@ func (c *WorkwxApp) ListDepts(id int64) ([]*DeptInfo, error) {
 	return resp.Department, nil
 }
 
+// GetDept 获取单个部门详情
+func (c *WorkwxApp) GetDept(id int64) (deptInfo *DeptInfo, err error) {
+	resp, err := c.execDept(reqDept{
+		ID: id,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return resp.Department, nil
+}
+
 // SimpleListAllDepts 获取全量组织架构（简易）。
 func (c *WorkwxApp) SimpleListAllDepts() ([]*DeptInfo, error) {
 	resp, err := c.execDeptSimpleList(reqDeptSimpleList{

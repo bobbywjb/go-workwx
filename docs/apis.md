@@ -35,13 +35,14 @@ Name|Request Type|Response Type|Access Token|URL|Doc
 
 ## API calls
 
-Name|Request Type|Response Type|Access Token|URL|Doc
-:---|------------|-------------|------------|:--|:--
-`execDeptCreate`|`reqDeptCreate`|`respDeptCreate`|+|`POST /cgi-bin/department/create`|[创建部门](https://work.weixin.qq.com/api/doc#90000/90135/90205)
-`execDeptUpdate`|TODO|TODO|+|`POST /cgi-bin/department/update`|[更新部门](https://work.weixin.qq.com/api/doc#90000/90135/90206)
-`execDeptDelete`|TODO|TODO|+|`GET /cgi-bin/department/delete`|[删除部门](https://work.weixin.qq.com/api/doc#90000/90135/90207)
-`execDeptList`|`reqDeptList`|`respDeptList`|+|`GET /cgi-bin/department/list`|[获取部门列表](https://work.weixin.qq.com/api/doc#90000/90135/90208)
-`execDeptSimpleList`|`reqDeptSimpleList`| `respDeptSimpleList` |+|`GET /cgi-bin/department/simplelist`|[获取子部门ID列表](https://developer.work.weixin.qq.com/document/path/95350)
+Name| Request Type        |Response Type|Access Token| URL                                  |Doc
+:---|---------------------|-------------|------------|:-------------------------------------|:--
+`execDeptCreate`| `reqDeptCreate`     |`respDeptCreate`|+| `POST /cgi-bin/department/create`    |[创建部门](https://work.weixin.qq.com/api/doc#90000/90135/90205)
+`execDeptUpdate`|TODO|TODO|+| `POST /cgi-bin/department/update`    |[更新部门](https://work.weixin.qq.com/api/doc#90000/90135/90206)
+`execDeptDelete`|TODO|TODO|+| `GET /cgi-bin/department/delete`     |[删除部门](https://work.weixin.qq.com/api/doc#90000/90135/90207)
+`execDeptList`|`reqDeptList`|`respDeptList`|+| `GET /cgi-bin/department/list`       |[获取部门列表](https://work.weixin.qq.com/api/doc#90000/90135/90208)
+`execDeptSimpleList`|`reqDeptSimpleList`|`respDeptSimpleList`|+| `GET /cgi-bin/department/simplelist` |[获取子部门ID列表](https://developer.work.weixin.qq.com/document/path/95350)
+`execDept`|`reqDept`|`respDept`|+|`GET /cgi-bin/department/get` |[获取单个部门](https://developer.work.weixin.qq.com/document/path/95351)
 
 # 标签管理
 

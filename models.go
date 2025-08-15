@@ -2,7 +2,6 @@ package workwx
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/url"
 	"strconv"
 	"strings"
@@ -389,6 +388,24 @@ type respDeptList struct {
 
 	// TODO: 不要懒惰，把 API 层的类型写好
 	Department []*DeptInfo `json:"department"`
+}
+
+type reqDept struct {
+	ID int64
+}
+
+var _ urlValuer = reqDept{}
+
+func (x reqDept) intoURLValues() url.Values {
+	return url.Values{
+		"id": {strconv.FormatInt(x.ID, 10)},
+	}
+}
+
+type respDept struct {
+	respCommon
+
+	Department *DeptInfo `json:"department"`
 }
 
 // reqDeptSimpleList 获取子部门ID列表
@@ -1378,8 +1395,6 @@ type reqTemplateCardUpdateMessage struct {
 var _ bodyer = reqTemplateCardUpdateMessage{}
 
 func (x reqTemplateCardUpdateMessage) intoBody() ([]byte, error) {
-	j, _ := json.Marshal(x)
-	fmt.Println(string(j))
 	return marshalIntoJSONBody(x)
 }
 
