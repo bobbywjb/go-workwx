@@ -1303,6 +1303,8 @@ type CheckBox struct {
 		// 该选项是否要默认选中
 		IsChecked bool `json:"is_checked"`
 	} `json:"option_list" validate:"required,min=1,max=20"`
+	// 是否可以选择状态，仅在更新模板消息时可用
+	Disable bool `json:"disable" validate:"omitempty"`
 	// 选择题模式，单选：0，多选：1，不填默认0
 	Mode int `json:"mode" validate:"omitempty,oneof=0 1"`
 }
